@@ -1,0 +1,54 @@
+:root {
+    --bg-color: #efefef;
+    --white: #fff;
+}
+
+body {
+    background: var(--bg-color);
+}
+
+.brands-outer {
+    overflow: hidden;
+    width: 100%;
+}
+
+.brands-inner {
+    white-space: nowrap;
+    animation: brands-slide 40s linear infinite;
+}
+
+.brands-inner div {
+    display: inline-block;
+    width: 10%; /* adjust the width to reduce the gap */
+    margin-right: 4%; /* adjust the margin between images */
+    transition: transform 0.2s ease-in-out;
+}
+
+.brands-inner div img {
+    max-width: 150px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.brands-inner div:hover {
+    transform: scale(1.1);
+}
+
+.brands-inner div:hover img {
+    opacity: 0.5;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+@keyframes brands-slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% + (100% / 5)));
+    }
+}
+
+.brands-outer:hover .brands-inner {
+    animation-play-state: paused;
+}
